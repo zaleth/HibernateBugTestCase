@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="se.zaleth.jar.administration.UserGroup" table="R141_USERGROUP">
+    <id column="usergroup_id" name="id">
+      <generator class="sequence">
+        <param name="sequence">R141_SEQ</param>
+        <param name="increment_size">1</param>
+        <param name="parameters">
+                    INCREMENT BY 1 START WITH 50001
+                </param>
+      </generator>
+    </id>
+  </class>
+</hibernate-mapping>

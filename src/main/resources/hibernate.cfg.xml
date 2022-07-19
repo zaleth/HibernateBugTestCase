@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.query.substitutions">true 1, false 0</property>
+    
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.url">databaseUrl</property>
+        <property name="connection.username">username</property>
+        <property name="connection.password">password</property>
+
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <!-- SQL dialect, autodetected since 3.2 -->
+        <!--property name="dialect">org.hibernate.dialect.OracleDialect</property-->
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+        <!--make the SQL output more readable -->
+        <property name="format_sql">false</property>
+        <!--The Oracle JDBC driver doesn't like prepared statement caching very much.-->
+        <property name="statement_cache.size">10</property>
+        <!--or baching with BLOBs very much.-->
+        <property name="jdbc.batch_size">0</property>
+        <property name="hibernate.jdbc.use_streams_for_binary">true</property>
+        <!--After a while, Oracle throws this exception: too many open cursors
+    
+
+        Disable PreparedStatement caching for the connection pool too.
+        http://www.hibernate.org/120.html#A10-->
+        <!--<property name="dbcp.ps.maxIdle">0</property>-->
+        <!-- Drop and re-create the database schema on startup -->
+        <!-- Do NOT uncomment this:  <property name="hbm2ddl.auto">create</property>-->
+        <property name="hibernate.jdbc.wrap_result_sets">true</property>
+    </session-factory>
+</hibernate-configuration>

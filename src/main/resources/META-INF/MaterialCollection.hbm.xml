@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="se.zaleth.jar.material.MaterialCollection" table="R019_MATERIAL_COLL">
+        <id column="COLL_ID" name="id">
+            <generator class="sequence">
+                <param name="sequence">R019_SEQ</param>
+                <param name="increment_size">1</param>
+                <param name="parameters">INCREMENT BY 1 START WITH 50001</param>
+            </generator>
+        </id>
+        <many-to-one class="se.zaleth.jar.material.MaterialCollection" column="PARENT_COLL_ID" name="parentMaterialCollection"/>
+        <property name="name" not-null="true" type="se.zaleth.util.UTFStringType">
+            <column name="COLL_NAME" sql-type="nvarchar(1000)"/>
+        </property>
+        <many-to-one class="se.zaleth.jar.administration.UserGroup" column="USERGROUP_ID" name="userGroup" cascade="all" lazy="proxy"/>
+    </class>
+</hibernate-mapping>
